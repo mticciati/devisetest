@@ -26,7 +26,11 @@
 			<tr>
 				<td><%= j.job_title %></td>
 				<td><%= j.qualified == 1 ? "Required" : "Not Required" %></td>
-				<td><%= j.user.email %></td>
+				<% if j.user %>
+					<td><%= j.user.email %></td>
+				<% else %>
+					<td>Unknown</td>
+				<% end %>
 				<td><%= j.created_at %></td>
 				<td>
 
