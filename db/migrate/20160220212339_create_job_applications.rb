@@ -4,7 +4,7 @@ class CreateJobApplications < ActiveRecord::Migration
 
     	t.integer :job_id
     	t.integer :user_id
-    	t.string :qualified
+    	t.integer :qualified
     	
       t.timestamps null: false
     end

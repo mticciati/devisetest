@@ -17,8 +17,14 @@ u1 = User.create([
 					password: "1234",
 					password_confirmation: "1234"
 				}])
-j1 = Job.create({
+j1 = Job.create([
+				{
 					job_title: "First Job",
 					user_id: 1,
+					qualified: 0
+				},
+				{
+					job_title: "Second Job - Cat Wrangler",
+					user_id: 1,
 					qualified: 1
-				})
+				}])
