@@ -31,11 +31,8 @@
 					</ul>
 					<% if @current_user %>
 						<ul class="nav navbar-nav">
-							<li><%= link_to "Home", root_path %></li>
 							<li><%= link_to "Jobs", jobs_path %></li>
-							<!-- add my_jobs -->
 							<li><%= link_to "My Jobs", my_jobs_path %></li>
-
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a><%= "#{@current_user.email} - #{current_user.role}" %></a></li>
