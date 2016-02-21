@@ -8,7 +8,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  host: MYSQL_DB
+  host: CLEARDB_DATABASE_URL
   #username: root
   #host: localhost
   #socket: /tmp/mysql.sock
