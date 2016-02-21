@@ -8,10 +8,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  #host: CLEARDB_DATABASE_URL
-  #username: root
-  #host: localhost
-  #socket: /tmp/mysql.sock
+  username: root
+  host: localhost
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -27,3 +26,4 @@ test:
 production:
   <<: *default
   database: devise_production
+    url: <%= ENV["DATABASE_URL"] %>
