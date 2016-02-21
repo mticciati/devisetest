@@ -1,0 +1,15 @@
+<h1>Go on, Apply!</h1>
+
+<p><%= @job.job_title %></p>
+
+<%= form_for(@job_application) do |f| %>
+	<%= f.label :are_you_qualified? %>
+	<div class="form-group">
+		<%= f.label :yes %>
+		<%= f.radio_button :qualified, 1, class: "form-control" %>
+		<%= f.label :no %>
+		<%= f.radio_button :qualified, 0, class: "form-control" %>
+		<%= f.hidden_field :job_id, :value => @job_application.job_id %>
+	</div>
+	<%= f.submit "Apply" %>
+<% end %>

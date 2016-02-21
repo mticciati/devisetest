@@ -1,0 +1,36 @@
+<h1>My Jobs - Applicant</h1>
+
+<p><%= @current_user.email %>
+
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>Job</th>
+			<th>Qualified</th>
+			<th>Posted By</th>
+			<th>Applied At</th>
+			<th>Status</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @job_applications.each do |j| %>
+			<tr>
+				<td>title</td>
+				<td><%= j.qualified == 0 ? "Required" : "Not Required" %></td>
+				<td>email</td>
+				<td><%= j.created_at %></td>
+				<td>Pending...</td>
+				<td>
+
+					<% if @current_user.role == 'admin' || @current_user.role == 'manager' %> 
+						<%= link_to "Edit", "/jobs/#{j.id}" %>
+					<% else %>
+						<%= link_to "Destroy", "/my_jobs/#{j.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+					<% end %>
+
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
