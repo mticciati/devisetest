@@ -26,4 +26,4 @@ test:
 production:
   <<: *default
   database: devise_production
-   url: puts ENV['DATABASE_URL']
+  url: puts ENV['DATABASE_URL']
