@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160220212339) do
     t.integer  "user_id",    limit: 4
     t.integer  "qualified",  limit: 4
     t.integer  "applicants", limit: 4,   default: 0
+    t.integer  "archived",   limit: 4,   default: 0
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end

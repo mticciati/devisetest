@@ -1,6 +1,6 @@
 <h1>My Jobs - <%= @current_user.role %></h1>
 
-<p><%= @current_user.email %>
+<p><%= @current_user.email %></p>
 <table class="table table-striped table-hover">
 	<% if @current_user.role == 'applicant' %>
 		<thead>
@@ -21,14 +21,7 @@
 					<td>email</td>
 					<td><%= j.created_at %></td>
 					<td>Pending...</td>
-					<td>
-
-						<% if @current_user.role == 'admin' || @current_user.role == 'manager' %> 
-							<%= link_to "Edit", "/jobs/#{j.id}" %>
-						<% else %>
-							<%= link_to "Destroy", "/my_jobs/#{j.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-						<% end %>
-
+					<td><%= link_to "Destroy", "/my_jobs/#{j.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>
 				</tr>
 			<% end %>
@@ -52,7 +45,11 @@
 					<td><%= j.qualified == 1 ? "Required" : "Not Required" %></td>
 					<td><%= j.applicants %></td>
 					<td><%= j.created_at %></td>
-					<td><%= link_to "Edit", edit_job_path(j) %></td>
+					<td>
+						<%= link_to "Edit", edit_job_path(j) %>
+						<%= " | " %> 
+						<%= link_to "Archive", "/my_jobs/#{j.id}", method: :post, data: { confirm: 'Are you sure?' } %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   post '/job_applications' => 'job_application#create'
 
   get '/my_jobs' => 'my_jobs#index'
-  delete '/my_jobs/:id' => 'my_jobs#destroy'
+  delete '/my_jobs/:id' => 'my_jobs#destroy' #applicant
+  post '/my_jobs/:id' => 'my_jobs#archive' #admin & manager
+
+  get '/archives' => 'archive#index' #admin
+  post '/archives/:id' => 'archive#unarchive' #admin
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

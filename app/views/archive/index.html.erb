@@ -1,0 +1,28 @@
+<h1>Welcome to Archived Jobs</h1>
+
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>Job</th>
+			<th>Qualifications</th>
+			<th>Posted By</th>
+			<th>Posted At</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @jobs.each do |j| %>
+			<tr>
+				<td><%= j.job_title %></td>
+				<td><%= j.qualified == 1 ? "Required" : "Not Required" %></td>
+				<% if j.user %>
+					<td><%= j.user.email %></td>
+				<% else %>
+					<td>Unknown</td>
+				<% end %>
+				<td><%= j.created_at %></td>
+				<td><%= link_to "Unarchive", "/archives/#{j.id}", method: :post %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -19,7 +19,7 @@ u1 = User.create([
 				}])
 j1 = Job.create([
 				{
-					job_title: "First Job",
+					job_title: "First Job - Dog Wrangler",
 					user_id: 1,
 					qualified: 0
 				},

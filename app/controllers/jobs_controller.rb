@@ -5,7 +5,7 @@ class JobsController < ApplicationController
 
 
 	def index
-		@jobs = Job.all
+		@jobs = Job.where({archived: 0})
 		if current_user.role == 'applicant'
 			@applied_to = JobApplication.where({user_id: current_user.id})
 		end
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
 	private
 
 	def set_job
-		@job = Job.find(params[:id])
+	    @job = Job.find(params[:id])
 	end
 
 	def job_params
