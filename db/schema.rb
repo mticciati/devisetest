@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20160220212339) do
     t.string   "job_title",  limit: 255
     t.integer  "user_id",    limit: 4
     t.integer  "qualified",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "applicants", limit: 4,   default: 0
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|

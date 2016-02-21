@@ -15,7 +15,8 @@ class JobApplicationController < ApplicationController
 		@job_application = JobApplication.new(job_application_params)
 		@job_application.user_id = current_user.id
 		if @job_application.save
-			redirect_to '/jobs'
+			Job.increment_counter(:applicants, @job_application.job_id)
+			redirect_to '/my_jobs'
 		else
 			redirect_to '/job_appications/#{@job.id}'
 		end

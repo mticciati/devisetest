@@ -37,7 +37,11 @@
 					<% if @current_user.role == 'admin' || @current_user.role == 'manager' %> 
 						<%= link_to "Edit", edit_job_path(j) %>
 					<% else %>
-						<%= link_to "Apply", "/job_applications/#{j.id}" %>
+						<% if @applied_to.map{|a| a.job_id}.include? j.id %>
+							<%= link_to "Applied", my_jobs_path %>
+						<% else %>
+							<%= link_to "Apply", "/job_applications/#{j.id}" %>
+						<% end %>
 					<% end %>
 
 				</td>

@@ -6,6 +6,9 @@ class JobsController < ApplicationController
 
 	def index
 		@jobs = Job.all
+		if current_user.role == 'applicant'
+			@applied_to = JobApplication.where({user_id: current_user.id})
+		end
 	end
 
 	## user.admin && user.manager
