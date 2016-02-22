@@ -13,8 +13,7 @@ class MyJobsController < ApplicationController
 		@current_user = current_user
 	end
 
-	def destroy
-		
+	def destroy	
 		if @job_application.destroy  			
 			redirect_to '/my_jobs' 
 		else 
@@ -38,7 +37,7 @@ class MyJobsController < ApplicationController
 	private
 
 	def set_job_application
-		@job_application = JobApplication.find(job_id: params[:id], user_id: current_user.id)     
+		@job_application = JobApplication.find(params[:id])     
   	end
 
   	def set_job
