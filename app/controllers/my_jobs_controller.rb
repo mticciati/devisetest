@@ -38,7 +38,7 @@ class MyJobsController < ApplicationController
 	private
 
 	def set_job_application
-		@job_application = JobApplication.find(job_id: params[:id])     
+		@job_application = JobApplication.find(job_id: params[:id], user_id: current_user.id)     
   	end
 
   	def set_job
