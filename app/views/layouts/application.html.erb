@@ -31,10 +31,11 @@
 					</ul>
 					<% if @current_user %>
 						<ul class="nav navbar-nav">
-							<li><%= link_to "Jobs", jobs_path %></li>
-							<li><%= link_to "My Jobs", my_jobs_path %></li>
+						
+							<li class="<%= 'active' if current_page?(jobs_path) %>"><%= link_to "Jobs", jobs_path %></li>
+							<li class="<%= 'active' if current_page?(my_jobs_path) %>"><%= link_to "My Jobs", my_jobs_path %></li>
 							<% if @current_user.role == 'admin' %>
-								<li><%= link_to "Archive", archives_path %></li>
+								<li class="<%= 'active' if current_page?(archives_path) %>"><%= link_to "Archive", archives_path %></li>
 							<% end %>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
@@ -43,8 +44,8 @@
 						</ul>
 					<% else %>
 						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to "Login", new_user_session_path %></li>
-							<li><%= link_to "Signup", new_user_registration_path %></li>
+							<li class="<%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "Login", new_user_session_path %></li>
+							<li class="<%= 'active' if current_page?(new_user_registration_path) %>"><%= link_to "Signup", new_user_registration_path %></li>
 						</ul>
 					<% end %>
 				</ul>
