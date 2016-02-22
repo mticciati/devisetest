@@ -38,11 +38,7 @@ class MyJobsController < ApplicationController
 	private
 
 	def set_job_application
-		if current_user.role == 'applicant'
-      		@job_application = JobApplication.find(params[:id])
-      	else
-      		@job_application = JobApplication.where(job_id: params[:id])
-      	end
+		@job_application = JobApplication.find(job_id: params[:id])     
   	end
 
   	def set_job
