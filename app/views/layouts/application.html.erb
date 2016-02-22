@@ -30,8 +30,7 @@
 						<li></li>
 					</ul>
 					<% if @current_user %>
-						<ul class="nav navbar-nav">
-						
+						<ul class="nav navbar-nav">		
 							<li class="<%= 'active' if current_page?(jobs_path) %>"><%= link_to "Jobs", jobs_path %></li>
 							<li class="<%= 'active' if current_page?(my_jobs_path) %>"><%= link_to "My Jobs", my_jobs_path %></li>
 							<% if @current_user.role == 'admin' %>
