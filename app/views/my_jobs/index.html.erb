@@ -21,7 +21,7 @@
 					<td>email</td>
 					<td><%= j.created_at %></td>
 					<td>Pending...</td>
-					<td><%= link_to "Destroy", "/my_jobs/#{j.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+					<td><%= link_to "Destroy", "/my_jobs/#{j.job_id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>
 				</tr>
 			<% end %>

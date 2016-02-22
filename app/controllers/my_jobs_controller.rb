@@ -51,6 +51,9 @@ class MyJobsController < ApplicationController
 
 	def pre_destroy_method
 		Job.decrement_counter(:applicants, params[:id])	
+		#@job = Job.where(id: params[:id])
+		#@user = User.where(id: @job.user_id)
+		#SEND ALERT TO CREATOR OF JOB THAT APPLICANT CANCELLED
 	end
 
 end
