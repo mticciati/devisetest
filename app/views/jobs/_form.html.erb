@@ -1,9 +1,9 @@
 <% if @job.errors.any? %>
-<% @job.errors.full_message.each do |msg| %>
+	<% @job.errors.full_messages.each do |msg| %>
 
-<div class="warning"><%= msg %></div>
+	<div class="alert alert-danger"><%= msg %></div>
 
-<% end %>
+	<% end %>
 <% end %>
 
 <%= form_for(@job) do |f| %>

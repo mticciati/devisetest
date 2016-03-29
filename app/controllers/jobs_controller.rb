@@ -17,13 +17,13 @@ class JobsController < ApplicationController
 	end
 
 	def create 
-		flash[:notice] = 'You created a job!'
 		@job = Job.new(job_params)
 		@job.user_id = current_user.id
 		if @job.save
-			redirect_to '/jobs'
+			flash[:notice] = 'You created a job!'
+			redirect_to jobs_path
 		else
-			render :new
+			render new_job_path
 		end
 	end
 
