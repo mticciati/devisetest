@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 	end
 
 	def create 
-		flash[:notice] = 'Created job ' + job_params[:title]
+		flash[:notice] = 'You created a job!'
 		@job = Job.new(job_params)
 		@job.user_id = current_user.id
 		if @job.save
