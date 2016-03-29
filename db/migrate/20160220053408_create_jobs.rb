@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
 
     	t.string :job_title
     	t.integer :user_id	
-    	t.integer :qualified
+    	t.integer :qualified, default: 1
     	t.integer :applicants, default: 0
     	t.integer :archived, default: 0
       	t.timestamps null: false
