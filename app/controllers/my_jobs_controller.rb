@@ -28,7 +28,7 @@ class MyJobsController < ApplicationController
 		if @job.save
 			job_applications = JobApplication.where(job_id: @job.id)
 			job_applications.destroy_all	
-			redirect_to '/archives'
+			redirect_to :index
 		else
 			puts 'Archive job error...'
 		end
