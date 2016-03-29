@@ -1,0 +1,26 @@
+<% if @job.errors.any? %>
+<% @job.errors.full_message.each do |msg| %>
+
+<div class="warning"><%= msg %></div>
+
+<% end %>
+<% end %>
+
+<%= form_for(@job) do |f| %>
+	<div class="form-group">
+		<%= f.label :job_title %>
+		<%= f.text_field :job_title, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.radio_button :qualified, 1 %>
+		<%= f.label :require_qualification %><br/>
+		
+		<%= f.radio_button :qualified, 0 %>
+		<%= f.label :no_require_qualification %><br/>
+	</div>
+	<%= f.submit %>
+
+	<br/>
+	<br/>
+	<%= link_to "Back to Jobs", jobs_path %>
+<% end %>
