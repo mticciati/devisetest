@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
   <title>Devisetest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -54,6 +54,13 @@
 	</nav>
 
 	<div class="col-sm-8 col-sm-offset-2">
+
+	<% flash.each do |name, msg| %>
+	
+		<div><%= msg %></div>
+
+	<% end %>
+
 		<%= yield %>
 	</div>
 
